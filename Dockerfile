@@ -2,15 +2,12 @@ FROM opencpu/base
 
 # Install dependencies
 RUN apt-get update
-RUN apt-get install -y build-essential gfortran libapparmor-dev libboost-all-dev
+RUN apt-get install -y build-dep build-essential gfortran libapparmor-dev libboost-all-dev
 RUN apt-get install -y libcairo2-dev libcurl4-gnutls-dev libfontconfig1-dev
 RUN apt-get install -y libgsl-dev libjpeg-dev liblapack-dev libmariadb-dev libpng-dev
 RUN apt-get install -y libproj-dev libsodium-dev libssl-dev  libudunits2-dev libxml2-dev mesa-common-dev
 RUN apt-get install -y libglu1-mesa-dev pandoc
-
-RUN apt-get -y build-dep libcurl4-gnutls-dev
-RUN apt-get -y install libcurl4-gnutls-dev
-RUN apt-get -y install libcurl4-openssl-dev libssl-dev
+RUN apt-get install -y libcurl4-openssl-dev libssl-dev
 
 
 # Install R packages
