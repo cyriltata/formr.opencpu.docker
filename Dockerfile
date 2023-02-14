@@ -8,6 +8,10 @@ RUN apt-get install -y libgsl-dev libjpeg-dev liblapack-dev libmariadb-dev libpn
 RUN apt-get install -y libproj-dev libsodium-dev libssl-dev  libudunits2-dev libxml2-dev mesa-common-dev
 RUN apt-get install -y libglu1-mesa-dev pandoc
 
+RUN apt-get -y build-dep libcurl4-gnutls-dev
+RUN apt-get -y install libcurl4-gnutls-dev
+RUN apt-get -y install libcurl4-openssl-dev libssl-dev
+
 
 # Install R packages
 
@@ -70,6 +74,7 @@ RUN apt-get install -y libglu1-mesa-dev pandoc
 # RUN Rscript -e "install.packages('stringr')"
 # RUN Rscript -e "install.packages('utf8')"
 # RUN Rscript -e "install.packages('webutils')"
+
 RUN Rscript -e "install.packages('zip')"
 RUN Rscript -e "install.packages('devtools')"
 RUN Rscript -e "devtools::install_github('rubenarslan/formr', upgrade_dependencies = FALSE)"
