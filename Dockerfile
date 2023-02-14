@@ -8,6 +8,7 @@ RUN apt-get install -y libgsl-dev libjpeg-dev liblapack-dev libmariadb-dev libpn
 RUN apt-get install -y libproj-dev libsodium-dev libssl-dev  libudunits2-dev libxml2-dev mesa-common-dev
 RUN apt-get install -y libglu1-mesa-dev pandoc
 RUN apt-get install -y libcurl4-openssl-dev libssl-dev
+RUN apt-get install -y git
 
 
 
