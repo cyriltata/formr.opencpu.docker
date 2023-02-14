@@ -71,7 +71,6 @@ RUN apt-get install -y libcurl4-openssl-dev libssl-dev
 # RUN Rscript -e "install.packages('stringr')"
 # RUN Rscript -e "install.packages('utf8')"
 # RUN Rscript -e "install.packages('webutils')"
+# RUN Rscript -e "install.packages('zip')"
 
-RUN Rscript -e "install.packages('zip')"
-RUN Rscript -e "install.packages('devtools')"
 RUN Rscript -e "devtools::install_github('rubenarslan/formr', upgrade_dependencies = FALSE)"
