@@ -10,6 +10,7 @@ RUN apt-get install -y libglu1-mesa-dev pandoc
 RUN apt-get install -y libcurl4-openssl-dev libssl-dev
 
 
+
 # Install R packages
 
 # RUN Rscript -e "install.packages('blob')"
@@ -73,5 +74,14 @@ RUN apt-get install -y libcurl4-openssl-dev libssl-dev
 # RUN Rscript -e "install.packages('webutils')"
 # RUN Rscript -e "install.packages('zip')"
 
-RUN Rscript -e "install.packages('devtools')"
+# Install formr R package (without devtools)
+RUN git clone https://github.com/rubenarslan/formr.git
+RUN R CMD build formr
+RUN R CMD INSTALL formr_0.9.1.tar.gz
+
+# Install formr R package (with devtools)
+# RUN Rscript -e "install.packages('devtools')"
 # RUN Rscript -e "devtools::install_github('rubenarslan/formr', upgrade_dependencies = FALSE)"
+
+Run Rscript -e "fail:here()"
+
