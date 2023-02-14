@@ -8,7 +8,6 @@ RUN apt-get install -y libgsl-dev libjpeg-dev liblapack-dev libmariadb-dev libpn
 RUN apt-get install -y libproj-dev libsodium-dev libssl-dev  libudunits2-dev libxml2-dev mesa-common-dev
 RUN apt-get install -y libglu1-mesa-dev pandoc
 RUN apt-get install -y libcurl4-openssl-dev libssl-dev
-RUN apt-get install -y git
 
 
 
@@ -75,14 +74,13 @@ RUN apt-get install -y git
 # RUN Rscript -e "install.packages('webutils')"
 # RUN Rscript -e "install.packages('zip')"
 
-# Install formr R package (without devtools)
-RUN git clone https://github.com/rubenarslan/formr.git
-RUN R CMD build formr
-RUN R CMD INSTALL formr_0.9.1.tar.gz
+# Install devtools
+wget https://cran.r-project.org/src/contrib/devtools_2.4.5.tar.gz
+RUN R CMD INSTALL devtools_2.4.5.tar.gz
 
 # Install formr R package (with devtools)
 # RUN Rscript -e "install.packages('devtools')"
-# RUN Rscript -e "devtools::install_github('rubenarslan/formr', upgrade_dependencies = FALSE)"
+RUN Rscript -e "devtools::install_github('rubenarslan/formr', upgrade_dependencies = FALSE)"
 
 Run Rscript -e "fail:here()"
 
