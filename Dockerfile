@@ -75,8 +75,10 @@ RUN apt-get install -y libcurl4-openssl-dev libssl-dev
 # RUN Rscript -e "install.packages('zip')"
 
 # Install devtools
+RUN apt-get install -y wget
 wget https://cran.r-project.org/src/contrib/devtools_2.4.5.tar.gz
 RUN R CMD INSTALL devtools_2.4.5.tar.gz
+
 
 # Install formr R package (with devtools)
 # RUN Rscript -e "install.packages('devtools')"
